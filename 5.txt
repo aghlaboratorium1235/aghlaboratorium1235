@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+// Tutaj definiujemy klasê
+
+class stack
+{
+    public:               // interfejs klasy dla programu
+
+      stack(int n);       // konstruktor stosu n-elementowego
+      ~stack();           // destruktor
+      void Zapisz(int x); // funkcja sk³adowa
+      int  Czytaj();      // funkcja sk³adowa
+
+    private:              // elementy prywatne do u¿ytku wewnêtrznego
+
+      int w, * s, limit;
+};
+
+// Definicja konstruktora
+
+stack::stack(int n)
+{
+    limit = n;            // zapamiêtujemy rozmiar stosu
+    s = new int[n];       // tworzymy tablicê dynamiczn¹
+    w = 0;                // zerujemy wskaŸnik stosu
+    cout << "KONSTRUKTOR - STOS UTWORZONY\n";
+}
