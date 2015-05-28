@@ -1,0 +1,35 @@
+int stack::Czytaj()
+{
+    if(w) return s[--w];
+    cout << "STOS PUSTY!!!" << endl;
+    return -1;
+}
+
+// Program g³ówny
+
+int main()
+{
+  stack stos(5);      // zmienna klasy, stos o rozmiarze 5
+  int i,x;
+
+  srand(time(NULL));  // inicjujemy generator pseudolosowy
+
+  cout << "ZAPIS 7 LICZB NA STOS\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = rand();
+     cout << x << endl;
+     stos.Zapisz(x);
+  }
+
+  cout << "\nODCZYT 7 LICZB ZE STOSU\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = stos.Czytaj();
+     cout << x << endl;
+  }
+
+  return 0;
+} 
