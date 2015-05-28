@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 nie
+=======
+cdrdrtdrtdrtdrtdrtdrtdrtdrtudrtseaewqewaqewaewa3qwa23a23q23q3qa3qweA3QAQEWAEWAEW
+>>>>>>> 2aa25379c2579bb0dfc03f11f118d8b3af3dd447
 #include <cstdlib>
 #include <time.h>
 
