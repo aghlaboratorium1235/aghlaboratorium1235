@@ -1,0 +1,28 @@
+int main()
+{
+  stack stos;
+  int i,x;
+
+  srand(time(NULL)); // inicjujemy generator pseudolosowy
+
+  stos.w = 0;        // inicjujemy wskaünik stosu
+
+  cout << "ZAPIS 7 LICZB NA STOS\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = rand();
+     cout << x << endl;
+     Zapisz(stos,x);
+  }
+
+  cout << "\nODCZYT 7 LICZB ZE STOSU\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = Czytaj(stos);
+     cout << x << endl;
+  }
+
+  return 0;
+} 
