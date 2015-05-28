@@ -1,0 +1,113 @@
+nt slad(double **mac, int *rozmiar)
+
+{
+
+int i, j;
+
+double slad;
+
+if(flag!=1) printf("\n\tUWAGA! Nie mozesz obliczyc sladu w pustej macierzy. Wczytaj macierz.\n");
+
+else
+
+{
+
+for(i=0; i<(*rozmiar); i++)
+
+{
+
+for(j=0; j<(*rozmiar); j++)
+
+{
+
+if(i==j)
+
+{
+
+slad+=mac[i][j];
+
+}
+
+}
+
+}//for
+
+printf("Slad wczytanej macierzy wynosi = %.1lf\n", slad);
+
+}//else
+
+}//koniec funkcji
+
+main(int argc, char *argv[])
+
+{
+
+FILE *plik;
+
+double **macierz;
+
+int rozmiar;
+
+int i;
+
+if(argc !=2)
+
+{
+
+printf("Niewlasciwa liczba argumentow.\n");
+
+exit(1);
+
+}
+
+plik=fopen(argv[1],"r");
+
+if(plik == NULL)
+
+{
+
+fprintf(stderr,"\nError. Not exist such file.\n");
+
+exit(1);
+
+}
+
+fscanf(plik, "%d", &rozmiar);
+
+macierz=(double**)malloc((rozmiar)*sizeof(double));
+
+for(i=0; i<rozmiar; i++)
+
+macierz[i]=(double*)malloc(rozmiar*sizeof(double));
+
+for(;;)
+
+{
+
+switch(menu())
+
+{
+
+case 1: wczytanie(macierz, plik, &rozmiar); break;
+
+case 2: wyswietlenie(macierz, &rozmiar); break;
+
+case 3: mnozprzezskal(macierz, &rozmiar); break;
+
+case 4: suma(macierz, &rozmiar); break;
+
+case 5: iloczyn(macierz, &rozmiar); break;
+
+case 6: slad(macierz, &rozmiar); break;
+
+case 7: exit(0);
+
+}//koniec switch
+
+}//koniec for
+
+}//koniec main
+
+int menu(void)
+
+{
