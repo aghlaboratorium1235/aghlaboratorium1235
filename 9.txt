@@ -1,0 +1,69 @@
+int iloczyn(double **mac, int *rozmiar)
+
+{
+
+int i, j, k;
+
+int rozm;
+
+char nazwa_pliku[20];
+
+double **mac2;
+
+double iloczyn[*rozmiar][*rozmiar];
+
+FILE *stream;
+
+if(flag!=1) printf("\n\tUWAGA! Nie mozesz mnozyc pustej macierzy. Wczytaj macierz\n");
+
+else
+
+{
+
+printf("Podaj plik z ktorego chcesz wczytac macierz: ");
+
+scanf("%s", &nazwa_pliku);
+
+stream=fopen(nazwa_pliku, "r");
+
+if(stream==NULL) printf("Nie udalo sie wczytac pliku..");
+
+fscanf(stream,"%d", &rozm);
+
+mac2=(double**)malloc(rozm*sizeof(double));
+
+for(i=0; i<rozm; i++)
+
+mac2[i]=(double*)malloc(rozm*sizeof(double));
+
+for(i=0; i<rozm; i++)
+
+{
+
+for(j=0; j<rozm; j++)
+
+{
+
+fscanf(stream, "%lf",&mac2[i][j]);
+
+}
+
+}
+
+if((*rozmiar)==rozm) //rozm - rozmiar podanej macierzy ktora chcemy dodac
+
+{
+
+for(i=0; i<(*rozmiar); i++)
+
+{ 
+
+for(j=0; j<(*rozmiar); j++ )
+
+{
+
+iloczyn[i][j]=0;
+
+for(k=0; k<(*rozmiar); k++)
+
+{
