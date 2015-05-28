@@ -1,0 +1,55 @@
+stack::~stack()
+{
+    delete [] s;          // usuwamy tablicê dynamiczn¹
+    cout << "DESTRUKTOR - STOS USUNIETY\n";
+}
+
+// Funkcja zapisuje na stos
+
+void stack::Zapisz(int x)
+{
+    if(w < limit) s[w++] = x;
+    else cout << "STOS PELNY!!!" << endl;
+}
+
+// Funkcja odczytuje ze stosu
+
+int stack::Czytaj()
+{
+    if(w) return s[--w];
+    cout << "STOS PUSTY!!!" << endl;
+    return -1;
+}
+
+// Program g³ówny
+
+int main()
+{
+  stack * stos;         // wskaŸnik do klasy
+  int i,x;
+
+  stos = new stack(5);  // tworzymy klasê dynamicznie
+
+  srand(time(NULL));    // inicjujemy generator pseudolosowy
+
+  cout << "ZAPIS 7 LICZB NA STOS\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = rand();
+     cout << x << endl;
+     stos -> Zapisz(x); // wywo³anie funkcji sk³adowej
+  }
+
+  cout << "\nODCZYT 7 LICZB ZE STOSU\n";
+
+  for(i = 1; i <= 7; i++)
+  {
+     x = stos -> Czytaj(); // wywo³anie funkcji sk³adowej
+     cout << x << endl;
+  }
+
+  delete stos;         // usuniêcie klasy dynamicznej z pamiêci
+
+  return 0;
+} 
